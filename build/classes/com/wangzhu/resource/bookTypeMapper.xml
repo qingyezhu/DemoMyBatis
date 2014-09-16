@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wangzhu.mapper.BookTypeMapper">
+	<insert id="insert" parameterType="com.wangzhu.bean.BookType">
+		insert into booktype(title,detail) values(#{title},#{detail})
+	</insert>
+	
+	<update id="update" parameterType="com.wangzhu.bean.BookType">
+		update booktype set title=#{title},detail=#{detail} where id=#{id}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from booktype where id=#{id}
+	</delete>
+	
+	<select id="selectAll" resultType="com.wangzhu.bean.BookType">
+		select * from booktype		
+	</select>
+	
+	<select id="countAll" resultType="int">
+		select count(*) count from booktype
+	</select>
+	
+	<select id="findById" parameterType="int" resultType="com.wangzhu.bean.BookType">
+		select * from booktype where id=#{id}
+	</select>
+</mapper>
